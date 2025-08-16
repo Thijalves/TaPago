@@ -1,8 +1,10 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, QrCode } from 'lucide-react';
-import { PaymentMethod } from '@/types/grocery';
+import { CheckCircle } from 'lucide-react';
+import { PaymentMethod, CartItem } from '@/types/grocery';
+import QRCode from 'react-qr-code';
+import { useState } from 'react';
 import { mockCartItems } from '@/data/mockData';
 
 interface CheckoutSuccessProps {
@@ -11,7 +13,20 @@ interface CheckoutSuccessProps {
 }
 
 export const CheckoutSuccess = ({ paymentMethod, onStartNewOrder }: CheckoutSuccessProps) => {
-  const total = mockCartItems.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
+  
+  const [cartItems] = useState<CartItem[]>([...mockCartItems]);
+
+  const total = cartItems.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
+
+  const qrCartData = JSON.stringify(
+    cartItems.map(item => ({
+      id: item.product.id,
+      name: item.product.name,
+      quantity: item.quantity,
+      price: item.product.price
+    }))
+  );
+
 
   return (
     <div className="p-4 space-y-6 animate-fade-in">
@@ -28,8 +43,8 @@ export const CheckoutSuccess = ({ paymentMethod, onStartNewOrder }: CheckoutSucc
 
       {/* QR Code for pickup/receipt */}
       <Card className="p-6 text-center">
-        <div className="w-32 h-32 bg-black mx-auto mb-4 rounded-lg flex items-center justify-center">
-          <QrCode className="h-24 w-24 text-white" />
+        <div className="w-64 h-64 mx-auto mb-4 rounded-lg flex items-center justify-center">
+          <QRCode value={qrCartData} />
         </div>
         <h3 className="font-semibold text-foreground mb-2">Código QR</h3>
         <p className="text-sm text-muted-foreground">
