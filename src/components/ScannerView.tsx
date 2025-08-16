@@ -51,10 +51,6 @@ export const ScannerView = ({ onProductFound }: ScannerViewProps) => {
 
       if (product) {
         console.log("Produto encontrado:", product);
-        toast({
-          title: "Produto encontrado!",
-          description: `${product.name} - abrindo página do produto...`,
-        });
         const productUrl = `/produto/${product.id}?ref=barcode&code=${encodeURIComponent(code)}`;
         setTimeout(() => {
           navigate(productUrl);

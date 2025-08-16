@@ -4,7 +4,6 @@ import { ArrowLeft, ShoppingCart, Search, List} from 'lucide-react';
 
 interface MobileLayoutProps {
   children: ReactNode;
-  title: string;
   showBack?: boolean;
   onBack?: () => void;
   showBottomNav?: boolean;
@@ -14,7 +13,6 @@ interface MobileLayoutProps {
 
 export const MobileLayout = ({ 
   children, 
-  title, 
   showBack = false, 
   onBack,
   showBottomNav = true,
@@ -23,20 +21,6 @@ export const MobileLayout = ({
 }: MobileLayoutProps) => {
   return (
     <div className="min-h-screen bg-background max-w-md mx-auto relative">
-      {/* Header */}
-      <div className="sticky top-0 z-50 bg-card border-b border-border px-4 py-3 flex items-center gap-3">
-        {showBack && (
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={onBack}
-            className="p-1 h-8 w-8"
-          >
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-        )}
-        <h1 className="text-lg font-semibold text-foreground flex-1">{title}</h1>
-      </div>
 
       {/* Content */}
       <div className={`${showBottomNav ? 'pb-20' : 'pb-4'}`}>

@@ -95,16 +95,26 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
         </div>
       </Card>
 
-      {/* Add to Cart Button */}
+      {/* Add to Cart & Cancel Buttons */}
       <div className="sticky bottom-4">
-        <Button
-          onClick={handleAddToCart}
-          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-          size="lg"
-        >
-          <ShoppingCart className="h-5 w-5 mr-2" />
-          Adicionar ao carrinho
-        </Button>
+        <div className="flex gap-3 w-full">
+          <Button
+            onClick={handleAddToCart}
+            className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
+            size="lg"
+          >
+            <ShoppingCart className="h-5 w-5 mr-2" />
+            Adicionar ao carrinho
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => window.history.back()}
+            className="flex-1 min-w-0 max-w-[200px] bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:text-white"
+            size="lg"
+          >
+            Cancelar
+          </Button>
+        </div>
       </div>
     </div>
   );

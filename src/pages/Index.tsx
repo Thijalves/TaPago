@@ -25,10 +25,6 @@ const Index = () => {
   const handleProductFound = (product: Product) => {
     setSelectedProduct(product);
     setCurrentView('product-details');
-    toast({
-      title: "Produto encontrado!",
-      description: `${product.name} foi escaneado com sucesso.`,
-    });
   };
 
   const handleAddToCart = (product: Product, quantity: number) => {
@@ -113,19 +109,7 @@ const Index = () => {
         setCurrentView('cart');
         break;
       default:
-        setCurrentView('shopping-list');
-    }
-  };
-
-  const getTitle = () => {
-    switch (currentView) {
-      case 'shopping-list': return 'Lista de Compras';
-      case 'scanner': return 'Escanear';
-      case 'product-details': return 'Detalhes do produto';
-      case 'cart': return 'Carrinho';
-      case 'payment': return 'Pagamento';
-      case 'checkout-success': return 'Checkout';
-      default: return 'Stitch Design';
+        setCurrentView('scanner');
     }
   };
 
@@ -154,7 +138,6 @@ const Index = () => {
 
   return (
     <MobileLayout
-      title={getTitle()}
       showBack={!['shopping-list', 'scanner', 'cart'].includes(currentView)}
       onBack={handleBack}
       showBottomNav={['shopping-list', 'scanner', 'cart'].includes(currentView)}
