@@ -96,7 +96,7 @@ export const ScannerView = ({ onProductFound }: ScannerViewProps) => {
   }
 
   return (
-    <div className="relative h-[calc(100vh-8rem)] bg-black animate-fade-in overflow-hidden">
+    <div className="relative h-[calc(100vh-5rem)] bg-black animate-fade-in overflow-hidden">
       <div className="absolute inset-0 w-full h-full flex items-center justify-center">
         <BarcodeScanner
           key={scannerKey}
