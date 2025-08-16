@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ShoppingCart, Home, Search, User } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Search, List} from 'lucide-react';
 
 interface MobileLayoutProps {
   children: ReactNode;
@@ -57,7 +57,7 @@ export const MobileLayout = ({
               }`}
               onClick={() => onNavigate('shopping-list')}
             >
-              <Home className="h-5 w-5" />
+              <List className="h-5 w-5" />
               <span className="text-xs">Lista de compras</span>
             </Button>
             <Button 
