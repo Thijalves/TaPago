@@ -155,7 +155,7 @@ const Index = () => {
   return (
     <MobileLayout
       title={getTitle()}
-      showBack={currentView !== 'shopping-list'}
+      showBack={!['shopping-list', 'scanner', 'cart'].includes(currentView)}
       onBack={handleBack}
       showBottomNav={['shopping-list', 'scanner', 'cart'].includes(currentView)}
       currentView={currentView}
