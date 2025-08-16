@@ -12,8 +12,7 @@ const EmployeeLogin = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Implement authentication logic here
-    navigate('/'); // Redirect to main app after login
+    navigate('/employee-scan');
   };
 
   return (
