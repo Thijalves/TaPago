@@ -22,9 +22,42 @@ export const mockProducts: Product[] = [
     name: 'Azeite de Oliva',
     price: 10.00,
     image: 'https://ibassets.com.br/ib.item.image.big/b-0a2d948ecdf741748294d8a2af96e3ad.jpeg',
-    description: 'Azeite de Oliva Gallo 250 ml',
+    description: 'Azeite de Oliva Gallo 250ml',
     category: 'Óleos'
+  },
+  {
+    id: '7896213005924',
+    name: 'Biscoito Treloso',
+    price: 2.50,
+    image: 'https://www.chegouafeira.com.br/image/cache/catalog/FOTOS%20MERCADORIAS/Biscoito%20Treloso%20Chocolate%20130g-500x500.jpg',
+    description: 'Biscoito recheado sabor chocolate 120g',
+    category: 'Biscoitos'
+  },
+  {
+    id: '7891000368572',
+    name: 'Chocolate Nestle',
+    price: 8.50,
+    image: 'https://docesvaz.vtexassets.com/arquivos/ids/164219/Sem-titulo.png?v=638445502116400000',
+    description: 'Chocolate meio amargo 80g',
+    category: 'Chocolates'
+  },
+  {
+    id: '7892840822347',
+    name: 'Doritos',
+    price: 7.00,
+    image: 'https://cdn.awsli.com.br/600x700/2738/2738763/produto/285738442/202406251444250471novo_projeto_71-405teb65vc.png',
+    description: 'Doritos sabor queijo nacho 75g',
+    category: 'Salgadinhos'
+  },
+  {
+    id: '78909045',
+    name: 'Coca-Cola zero açúcar',
+    price: 5.00,
+    image: 'https://img.megaboxatacado.com.br/produto/1000X1000/20181113_86433.jpg',
+    description: 'Coca-Cola zero açúcar 250ml',
+    category: 'Refrigerantes'
   }
+
 ];
 
 export const mockPaymentMethods: PaymentMethod[] = [
