@@ -4,6 +4,7 @@ import { MobileLayout } from '@/components/MobileLayout';
 import { Button } from '@/components/ui/button';
 import BarcodeScanner, { BarcodeFormat }  from "react-qr-barcode-scanner";
 import { Camera } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const EmployeeScan = () => {
   const [scannerKey, setScannerKey] = useState(0);
@@ -11,6 +12,7 @@ const EmployeeScan = () => {
   const [isScanning, setIsScanning] = useState(false);
   const isHandlingRef = useRef(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleBarcodeResult = (err: any, result: any) => {
     if (err) {
@@ -21,10 +23,10 @@ const EmployeeScan = () => {
       isHandlingRef.current = true;
       setIsScanning(true);
 
-      toast({
-        title: "QR Code escaneado!",
-        description: `Conteúdo: ${result.text}`,
-      });
+      // Redirect to order view page with QR code data
+      setTimeout(() => {
+        navigate(`/employee-order-view?qr=${encodeURIComponent(result.text)}`);
+      }, 500);
 
       setTimeout(() => {
         isHandlingRef.current = false;

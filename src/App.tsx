@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Welcome from "./pages/Welcome";
 import EmployeeLogin from "./pages/EmployeeLogin";
 import EmployeeScan from "./pages/EmployeeScan";
+import EmployeeOrderView from "./pages/EmployeeOrderView";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/produto/:id" element={<ProductPage />} />
           <Route path="/employee-login" element={<EmployeeLogin />} />
           <Route path="/employee-scan" element={<EmployeeScan />} />
+          <Route path="/employee-order-view" element={<EmployeeOrderView />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
